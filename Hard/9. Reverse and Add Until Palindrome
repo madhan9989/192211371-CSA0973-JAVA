@@ -1,0 +1,26 @@
+public class ReverseAddPalindrome {
+    public static void main(String[] args) {
+        int number = 7325; // Example: Input number
+
+        int count = 0;
+        while (!isPalindrome(number)) {
+            int reverse = reverseNumber(number);
+            number += reverse;
+            count++;
+            System.out.println(number);
+        }
+        System.out.println(number + " (Palindrome after " + count + " steps)");
+    }
+    public static int reverseNumber(int num) {
+        int reverse = 0;
+        while (num != 0) {
+            reverse = reverse * 10 + num % 10;
+            num /= 10;
+        }
+        return reverse;
+    }
+    public static boolean isPalindrome(int num) {
+        int reversed = reverseNumber(num);
+        return num == reversed;
+    }
+}

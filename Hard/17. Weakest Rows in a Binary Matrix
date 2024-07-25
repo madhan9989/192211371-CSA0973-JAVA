@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.List;
+public class WeakestRows {
+    public int[] kWeakestRows(int[][] mat, int k) {
+        int m = mat.length;
+        int n = mat[0].length;
+        List<int[]> strength = new ArrayList<>();
+        for (int i = 0; i < m; i++) {
+            int soldiers = countSoldiers(mat[i]);
+            strength.add(new int[]{i, soldiers});
+        }
+        strength.sort((a, b) -> a[1] != b[1] ? a[1] - b[1] : a[0] - b[0]);
+        int[] result = new int[k];
+        for (int i = 0; i < k; i++) {
+            result[i] = strength.get(i)[0];
+        }
+        return result;
+    }
+    private int countSoldiers(int[] row) {
+        int count = 0;
+        for (int num : row) {
+            if (num == 1) {
+                count++;
+            } else {
+                break;
+            }
+        }
+        return count;
+    }
+    public static void main(String[] args) {
+        WeakestRows solution = new WeakestRows();
+        int[][] matrix = {
+                {1, 1, 0, 0, 0},
+                {1, 1, 1, 1, 0},
+                {1, 0, 0, 0, 0},
+                {1, 1, 0, 0, 0},
+                {1, 1, 1, 1, 1}
+        };
+        int k = 3;
+        int[] result = solution.kWeakestRows(matrix, k);
+        System.out.println("Indices of weakest rows: ");
+        for (int idx : result) {
+            System.out.print(idx + " ");
+        }
+    }
+}

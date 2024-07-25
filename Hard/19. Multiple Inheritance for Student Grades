@@ -1,0 +1,41 @@
+interface Subject1 {
+    int marks1 = 85;
+}
+interface Subject2 {
+    int marks2 = 75;
+}
+interface Subject3 {
+    int marks3 = 65;
+}
+interface Subject4 {
+    int marks4 = 55;
+}
+interface Subject5 {
+    int marks5 = 45;
+}
+interface Subject6 {
+    int marks6 = 35;
+}
+class Student implements Subject1, Subject2, Subject3, Subject4, Subject5, Subject6 {
+    public void calculateGrade() {
+        int total = marks1 + marks2 + marks3 + marks4 + marks5 + marks6;
+        double aggregate = total / 6.0;
+        System.out.println("Total Marks: " + total);
+        System.out.println("Aggregate: " + aggregate);
+        if (aggregate > 75) {
+            System.out.println("Grade: Distinction");
+        } else if (aggregate >= 60) {
+            System.out.println("Grade: First Division");
+        } else if (aggregate >= 50) {
+            System.out.println("Grade: Second Division");
+        } else if (aggregate >= 40) {
+            System.out.println("Grade: Third Division");
+        } else {
+            System.out.println("Grade: FAIL");
+        }
+    }
+    public static void main(String[] args) {
+        Student student = new Student();
+        student.calculateGrade();
+    }
+}

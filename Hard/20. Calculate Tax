@@ -1,0 +1,19 @@
+public class TaxCalculator {
+    public double calculateTax(double income) {
+        if (income <= 250000) {
+            return 0;
+        } else if (income <= 500000) {
+            return (income - 250000) * 0.10;
+        } else if (income <= 1000000) {
+            return (250000 * 0.10) + (income - 500000) * 0.20;
+        } else {
+            return (250000 * 0.10) + (500000 * 0.20) + (income - 1000000) * 0.30;
+        }
+    }
+    public static void main(String[] args) {
+        TaxCalculator taxCalculator = new TaxCalculator();
+        double income = 1200000; 
+        double tax = taxCalculator.calculateTax(income);
+        System.out.println("Tax: " + tax);
+    }
+}

@@ -1,0 +1,13 @@
+public class DaysConverter {
+    public static void main(String[] args) {
+        int days = 500;
+        int years = days / 365;
+        int remainingDays = days % 365;
+        int weeks = remainingDays / 7;
+        int remainingDaysInWeeks = remainingDays % 7;
+        System.out.println(days + " days is equal to:");
+        System.out.println(years + " years");
+        System.out.println(weeks + " weeks");
+        System.out.println(remainingDaysInWeeks + " days");
+    }
+}

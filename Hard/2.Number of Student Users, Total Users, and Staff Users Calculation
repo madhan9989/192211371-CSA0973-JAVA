@@ -1,0 +1,9 @@
+public class UsersCalculator {
+    public static void main(String[] args) {
+        int totalUsers = 50; 
+        int staffUsers = 20; 
+        int nonTeachingStaff = staffUsers / 3;
+        int studentUsers = totalUsers - staffUsers - nonTeachingStaff;
+        System.out.println("Number of Student Users: " + studentUsers);
+    }
+}

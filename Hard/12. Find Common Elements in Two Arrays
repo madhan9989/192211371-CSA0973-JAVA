@@ -1,0 +1,20 @@
+import java.util.HashSet;
+import java.util.Set;
+public class CommonElements {
+    public static void main(String[] args) {
+        int[] arr1 = {1, 2, 3, 4, 5};
+        int[] arr2 = {4, 5, 6, 7};
+
+        Set<Integer> set = new HashSet<>();
+        for (int num : arr1) {
+            set.add(num);
+        }
+        Set<Integer> commonElements = new HashSet<>();
+        for (int num : arr2) {
+            if (set.contains(num)) {
+                commonElements.add(num);
+            }
+        }
+        System.out.println("Common elements: " + commonElements);
+    }
+}

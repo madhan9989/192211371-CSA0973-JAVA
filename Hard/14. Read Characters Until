@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class ReadUntilStar {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int uppercaseCount = 0, lowercaseCount = 0, numberCount = 0;
+        System.out.println("Enter characters, end with *:");
+        while (true) {
+            char ch = scanner.next().charAt(0);
+            if (ch == '*') {
+                break;
+            } else if (Character.isUpperCase(ch)) {
+                uppercaseCount++;
+            } else if (Character.isLowerCase(ch)) {
+                lowercaseCount++;
+            } else if (Character.isDigit(ch)) {
+                numberCount++;
+            }
+        }
+        System.out.println("Uppercase count: " + uppercaseCount);
+        System.out.println("Lowercase count: " + lowercaseCount);
+        System.out.println("Number count: " + numberCount);
+    }
+}
